@@ -1,0 +1,22 @@
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.welcome-page h1 {
+  margin-bottom: 20px;
+}
+
+.welcome-page video {
+  margin-bottom: 20px;
+}
+
+.welcome-page button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

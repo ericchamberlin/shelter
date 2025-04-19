@@ -5,6 +5,7 @@ import Decision from './components/Decision';
 import Tally from './components/Tally';
 import TeacherLogin from './components/TeacherLogin';
 import StudentSessionJoin from './components/StudentSessionJoin';
+import StartPage from './components/StartPage';
 import './App.css';
 
 import { profiles } from './profiles';
@@ -145,7 +146,7 @@ function StudentVotingInterface({ sessionCode }) {
 }
 
 function App() {
-  const [mode, setMode] = useState('student'); // modes: 'student', 'teacher', or 'join'
+  const [mode, setMode] = useState('start'); // modes: 'start', 'student', 'teacher', or 'join'
   const [studentSessionCode, setStudentSessionCode] = useState('');
 
   const handleSessionJoin = (code) => {
@@ -160,7 +161,12 @@ function App() {
         <button onClick={() => { setMode('join'); setStudentSessionCode(''); }}>Join Session</button>
         <button onClick={() => setMode('teacher')}>Teacher Login</button>
       </nav>
-      {mode === 'teacher' ? (
+      <a href="https://www.lessonresources.org/wiki/images/archive/7/74/20220909003539!FallOutBombShelterPeopleList.pdf" target="_blank" rel="noopener noreferrer">
+        Original Activity
+      </a>
+      {mode === 'start' ? (
+        <StartPage onBegin={() => setMode('student')} />
+      ) : mode === 'teacher' ? (
         <TeacherLogin />
       ) : mode === 'join' ? (
         studentSessionCode ? (
